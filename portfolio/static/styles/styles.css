@@ -16,8 +16,8 @@ body  {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: "Fjalla One", sans-serif;
-  font-weight: 400;
+  font-family: "Anton", sans-serif;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -180,111 +180,183 @@ svg {
 
 }
 
+
+
+.container-name-role {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 300px;
+  height: 150px;
+  overflow: hidden;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
 .container-name {
-    display: flex;
-    position: absolute;
-    top: 200px;
-    left: 100px;
-    width: 400px;
-    height: 100px;
-    font-size: 40px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    
+  display: flex;
+  position: absolute;
+  top: 2px;
+  width: 400px;
+  height: 100px;
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
 }
 
 .container-role {
     display: flex;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 135px;
-    width: 400px;
-    height: 100px;
-    font-size: 40px;
+    top:85px;
+    width: 260px;
+    height: 40px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
-    color: white;   
+    color: black; 
+    background-color: white;
+    border-radius: 100px;
+      
 }
 
 .container-tags {
-    display: none;
-    grid-template-rows: repeat(3,1fr);
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     position: absolute;
-    top: 200px;
-    left: 550px;
-    width: 680px;
-    height: 180px;
-    padding: 20px 0 ;
+    top: 400px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 600px;
+    height: 80px;
+    padding: 1px 0;
     box-sizing: border-box;
     z-index: 9999999999999999999;
 }
 
+
+#tag-python {
+  width: 80px;
+  height: auto;
+}
+
+#tag-mysql {
+  width: 60px;
+  height: auto;
+}
 .tag {
     display: flex;
-    width: 150px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 100px;
-    background-color: rgba(255, 255, 255, 0.13); 
-    backdrop-filter: blur(20px);
     align-items: center;
     margin: 10px 10px;
     cursor: pointer;
     transition: all 0.2s ease;
+    justify-content: center;
+    align-items: center;
 }
 
-.tag:hover {
-  background-color: white;
-  backdrop-filter: blur(500px);
-}
-
-.tag:hover span {
-  color: black;
-} 
-
-#tag-python {
-    width: 60px;
-    margin-left: 10px;
-    height: auto;
-    cursor: pointer;
-}
-
-#tag-css {
-    width: 40px;
-    height: auto;
-    margin-left: 40px;
-}
-
-.tag span {
-    margin-left: 30px;
-    color: white;
-}
-
-#js-span {
-    margin-left: 20px;
-}
-
-#tag-js {
-    width: 35px;
-    height: auto;
-}
-
-#tag-java {
-    margin-left: 25px;
-}
-
-#span-postgre {
-    margin-left: 20px;
-}
-
-#tag-postgre {
-    margin-left: 15px;
-}
 .tag img {
-    width: 40px;
+    width: 50px;
     height: auto;
-    margin-left: 20px;
+  
 
+}
+
+.container-info {
+  display: none;
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  top: 100px;
+  left: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  line-height: 2.5;
+  font-size: 18px;
+  justify-content: none;
+  
+}
+
+.wrapper-container {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 590px;
+  justify-content: center;
+}
+
+.tab-container {
+  width: 390px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 9px;
+  
+}
+
+.indicator {
+  content: "";
+  width: 130px;
+  height: 28px;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 9;
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 7px;
+  transition: all 0.2s ease-out;
+  
+}
+
+.tab {
+  width: 130px;
+  height: 28px;
+  position: absolute;
+  z-index: 99;
+  outline: none;
+  opacity: 0;
+  
+}
+
+.tab_label {
+  width: 130px;
+  height: 28px;
+
+  position: relative;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  font-size: 0.75rem;
+  opacity: 0.6;
+
+  cursor: pointer;
+}
+
+.tab--1:checked ~ .indicator {
+  left: 2px;
+}
+
+.tab--2:checked ~ .indicator {
+  left: calc(130px + 2px);
+}
+
+.tab--3:checked ~ .indicator {
+  left: calc(130px * 2 + 2px);
 }
