@@ -209,16 +209,17 @@ svg {
 }
 
 .container-tags {
-    display: grid;
+    display: none;
     grid-template-rows: repeat(3,1fr);
     grid-template-columns: repeat(3, 1fr);
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 600px;
-    width: 600px;
-    height: 200px;
-    background-color: rebeccapurple;
+    top: 200px;
+    left: 550px;
+    width: 680px;
+    height: 180px;
+    padding: 20px 0 ;
+    box-sizing: border-box;
+    z-index: 9999999999999999999;
 }
 
 .tag {
@@ -229,13 +230,25 @@ svg {
     background-color: rgba(255, 255, 255, 0.13); 
     backdrop-filter: blur(20px);
     align-items: center;
-    margin: 5px 10px;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
+
+.tag:hover {
+  background-color: white;
+  backdrop-filter: blur(500px);
+}
+
+.tag:hover span {
+  color: black;
+} 
 
 #tag-python {
     width: 60px;
     margin-left: 10px;
     height: auto;
+    cursor: pointer;
 }
 
 #tag-css {
