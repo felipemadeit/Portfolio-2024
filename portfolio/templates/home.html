@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+    @felipemadeit
+{% endblock %}
+
+{% block body %}
+    <div class="container-name">
+        <h3>Julian Homez</h3>
+    </div>
+
+    <div class="container-role">
+        <h4>Full Stack Developer</h4>
+    </div>
+
+    <div class="container-tags">
+        <div class="tag" >
+            <span>Python</span>
+            <img id="tag-python" src="{% static 'media/SVG/brand-python.svg' %}">
+        </div>
+        <div class="tag">
+            <span>Django</span>
+            <img src="{% static 'media/SVG/brand-django.svg' %}">
+        </div>
+        <div class="tag">
+            <span>HTML</span>
+            <img src="{% static 'media/SVG/html.svg' %}">
+        </div>
+        <div class="tag">
+            <span>CSS</span>
+            <img id="tag-css" src="{% static 'media/SVG/css.svg' %}">
+        </div>
+        <div class="tag">
+            <span id="js-span">JavaScript</span>
+            <img id="tag-js" src="{% static 'media/SVG/js.svg' %}">
+        </div>
+        <div class="tag">
+            <span>Java</span>
+            <img id="tag-java" src="{% static 'media/SVG/java.svg' %}">
+        </div>
+        <div class="tag">
+            <span>MySQL</span>
+            <img src="{% static 'media/SVG/mysql.svg' %}">
+        </div>
+        <div class="tag">
+            <span id="span-postgre">Postgresql</span>
+            <img id="tag-postgre" src="{% static 'media/SVG/postgresql.svg' %}">
+        </div>
+    </div>
+
+{% endblock %}

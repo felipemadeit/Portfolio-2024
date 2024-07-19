@@ -1,0 +1,277 @@
+/* EFFET DE BUBBLE GRADIENTS */
+:root {
+  --color-bg1: #191919;
+  --color-bg2: #323232;
+  --color1: 100, 100, 100;
+  --color2: 200, 200, 200;
+  --color3: 160, 160, 160;
+  --color4: 100, 100, 100;
+  --color5: 50, 50, 50;
+  --color-interactive: 255, 255, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
+body  {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+.gradient-bg {
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  display: none;
+}
+
+.gradients-container {
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1, .g2, .g3, .g4, .g5, .interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+}
+
+.g2 {
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+}
+
+.g3 {
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+}
+
+.g4 {
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 0.7;
+}
+
+.g5 {
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+}
+
+.interactive {
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+}
+
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/media/backgrounds/noise.webp');
+  opacity: 0.03;
+  z-index: 30;
+}
+
+
+.nav-bar {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    z-index: 100000000000;
+}
+
+.nav-bar ul {
+    display: flex;
+    position: absolute;
+    padding: 0;
+    margin-top: 20px;
+    width: 50%;
+    height: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(255, 255, 255, 0.034); 
+    backdrop-filter: blur(20px);
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav-bar li {
+    list-style: none;
+    margin: 0 50px;
+    font-size: 18px;
+    transition: 0.3s all ease;
+}
+
+.nav-bar li:hover{
+    transform: scale(1.1);
+}
+
+.nav-bar a {
+    text-decoration: none ;
+    color: white;
+
+}
+
+.container-name {
+    display: flex;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    width: 400px;
+    height: 100px;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+}
+
+.container-role {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 135px;
+    width: 400px;
+    height: 100px;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    color: white;   
+}
+
+.container-tags {
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 600px;
+    width: 600px;
+    height: 200px;
+    background-color: rebeccapurple;
+}
+
+.tag {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.13); 
+    backdrop-filter: blur(20px);
+    align-items: center;
+    margin: 5px 10px;
+}
+
+#tag-python {
+    width: 60px;
+    margin-left: 10px;
+    height: auto;
+}
+
+#tag-css {
+    width: 40px;
+    height: auto;
+    margin-left: 40px;
+}
+
+.tag span {
+    margin-left: 30px;
+    color: white;
+}
+
+#js-span {
+    margin-left: 20px;
+}
+
+#tag-js {
+    width: 35px;
+    height: auto;
+}
+
+#tag-java {
+    margin-left: 25px;
+}
+
+#span-postgre {
+    margin-left: 20px;
+}
+
+#tag-postgre {
+    margin-left: 15px;
+}
+.tag img {
+    width: 40px;
+    height: auto;
+    margin-left: 20px;
+
+}
