@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+    Projects
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-projects">
+        <div class="card">
+            <div class="wrapper-img">
+                <img src="{% static 'media/screenshots/home-screen.png' %}" alt="screenshot page">
+            </div>
+            <div class="container-info">
+                <h4>Gaming Ecommerce</h4>
+                <a class="link-button" href="https://github.com/felipemadeit/Store.git">
+                    <button class="button-link" id="button-git">
+                        <img src="{% static 'media/SVG/brand-github.svg' %}" alt="GitHub">
+                        <span>Code</span>
+                    </button>
+                </a>
+                <a class="link-button" href="https://felipemadeit.pythonanywhere.com/">
+                    <button class="button-link" id="button-linked">
+                        <img src="{% static 'media/SVG/line.svg' %}" alt="Link">
+                        <span>Link</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div id="links">
+        <div class="item">
+            <a href="{% static 'media/pdf/felipe-resume.pdf' %}">
+                <img src="{%  static 'media/SVG/paperclip.svg' %}" alt="rows">
+                <span>CV</span>
+            </a>
+            </div>
+        <div class="item">
+            <a href="{% url 'projects' %}">
+                <img src="{% static 'media/SVG/hammer.svg' %}" alt="hammer">
+                <span>Projects</span>
+            </a>
+            
+        </div>
+        <div class="item">
+            <a href="https://github.com/felipemadeit">
+            <img src="{%  static 'media/SVG/brand-github.svg' %}" alt="github logo">
+            <span>Github</splan>
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://www.linkedin.com/in/julian-felipe/">
+            <img src="{%  static 'media/SVG/brand-linkedin.svg' %}" alt="linkedin logo">
+            <span>Linkedin</splan>
+            </a>
+        </div>
+   </div>
+
+{% endblock%}

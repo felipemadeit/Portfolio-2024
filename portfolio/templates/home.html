@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block body %}
-
     <div class="container-name-role">    
         <div class="container-name">
             <h3>Julian Homez</h3>
@@ -19,6 +18,7 @@
     </div>
 
     <div class="container-tags">
+        <div class="wrapper-tags">
         <div class="tag" >
             <img id="tag-python" src="{% static 'media/SVG/brand-python.svg' %}">
         </div>
@@ -44,11 +44,40 @@
             <img id="tag-postgre" src="{% static 'media/SVG/postgresql.svg' %}">
         </div>
     </div>
+    </div>
 
     <div class="container-info" id="container-info">
     </div>
 
-   <div class=""
+
+
+   <div id="links">
+        <div class="item">
+            <a href="{% static 'media/pdf/felipe-resume.pdf' %}">
+                <img src="{%  static 'media/SVG/paperclip.svg' %}" alt="rows">
+                <span>CV</span>
+            </a>
+            </div>
+        <div class="item">
+            <a href="{% url 'projects' %}">
+                <img src="{% static 'media/SVG/hammer.svg' %}" alt="hammer">
+                <span>Projects</span>
+            </a>
+            
+        </div>
+        <div class="item">
+            <a href="https://github.com/felipemadeit">
+            <img src="{%  static 'media/SVG/brand-github.svg' %}" alt="github logo">
+            <span>Github</splan>
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://www.linkedin.com/in/julian-felipe/">
+            <img src="{%  static 'media/SVG/brand-linkedin.svg' %}" alt="linkedin logo">
+            <span>Linkedin</splan>
+            </a>
+        </div>
+   </div>
       
 
 {% endblock %}
