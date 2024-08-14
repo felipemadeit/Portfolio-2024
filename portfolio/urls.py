@@ -7,8 +7,4 @@ from django.conf import settings
 urlpatterns = [
     path('', views.home_view, name='home'),
     path('projects', views.projects_view, name="projects")
-]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
